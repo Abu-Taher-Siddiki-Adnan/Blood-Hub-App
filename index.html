@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Hub - Save Lives, Donate Blood</title>
+    <meta name="description" content="Bangladesh's community-driven blood donation platform. Connect with verified donors and save lives.">
+    <meta property="og:title" content="Blood Hub - Save Lives, Donate Blood">
+    <meta property="og:description" content="Find blood donors, get real-time alerts, and help save lives in your community.">
+    <meta property="og:image" content="https://i.ibb.co.com/1txKKfhk/logo.png">
+    <link rel="icon" href="https://i.ibb.co.com/1txKKfhk/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #E53935;
+            --red-dark: #C62828;
+            --red-light: #FFEBEE;
+            --black: #1A1A1A;
+            --white: #FFFFFF;
+            --gray: #757575;
+            --light-gray: #F5F5F5;
+            --border: #E0E0E0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex; align-items: center; gap: 10px;
+            text-decoration: none; color: var(--black);
+        }
+
+        .nav-logo-icon {
+            width: 36px; height: 36px;
+            background: var(--red);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+
+        .nav-logo-icon img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .nav-logo-text {
+            font-size: 20px; font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex; gap: 32px; align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none; color: var(--gray);
+            font-size: 14px; font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover { color: var(--black); }
+
+        .nav-btn {
+            background: var(--black); color: white;
+            padding: 10px 20px; border-radius: 30px;
+            text-decoration: none; font-size: 14px; font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover { background: var(--red); transform: scale(1.02); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center;
+            padding: 120px 24px 80px;
+            position: relative; overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute; top: -50%; right: -20%;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(229, 57, 53, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute; bottom: -30%; left: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(229, 57, 53, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 60px; align-items: center;
+            position: relative; z-index: 1;
+        }
+
+        .hero-content {
+            display: flex; flex-direction: column; gap: 24px;
+        }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--red-light); color: var(--red);
+            padding: 8px 16px; border-radius: 30px;
+            font-size: 13px; font-weight: 600;
+            width: fit-content;
+        }
+
+        .hero-badge-dot {
+            width: 6px; height: 6px;
+            background: var(--red); border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero-title {
+            font-size: 64px; font-weight: 800;
+            line-height: 1.08; letter-spacing: -2px;
+            color: var(--black);
+        }
+
+        .hero-title span { color: var(--red); }
+
+        .hero-description {
+            font-size: 18px; color: var(--gray);
+            line-height: 1.6; max-width: 480px;
+        }
+
+        .hero-stats {
+            display: flex; gap: 40px;
+        }
+
+        .hero-stat {
+            display: flex; flex-direction: column; gap: 4px;
+        }
+
+        .hero-stat-number {
+            font-size: 32px; font-weight: 700; color: var(--red);
+        }
+
+        .hero-stat-label {
+            font-size: 13px; color: var(--gray); font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex; gap: 12px; flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--red); color: white;
+            padding: 14px 28px; border-radius: 30px;
+            text-decoration: none; font-weight: 600; font-size: 15px;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover { background: var(--red-dark); transform: scale(1.02); }
+
+        .btn-secondary {
+            background: var(--black); color: white;
+            padding: 14px 28px; border-radius: 30px;
+            text-decoration: none; font-weight: 600; font-size: 15px;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover { background: #333; transform: scale(1.02); }
+
+        /* Phone Mockup */
+        .hero-visual {
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+
+        .phone-mockup {
+            width: 280px; height: 560px;
+            background: var(--black); border-radius: 40px;
+            padding: 12px; position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .phone-screen {
+            width: 100%; height: 100%;
+            background: linear-gradient(180deg, var(--red) 0%, var(--red-dark) 100%);
+            border-radius: 30px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 16px; color: white;
+            text-align: center; padding: 30px;
+        }
+
+        .phone-logo {
+            width: 80px; height: 80px;
+            background: white;
+            border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            padding: 12px;
+        }
+
+        .phone-logo img {
+            width: 100%; height: 100%;
+            object-fit: contain;
+        }
+
+        .phone-title { font-size: 20px; font-weight: 700; }
+        .phone-text { font-size: 13px; opacity: 0.8; line-height: 1.5; }
+
+        .phone-float-1 {
+            position: absolute; top: 60px; left: -50px;
+            background: white; padding: 12px 16px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            font-size: 13px; font-weight: 600;
+            display: flex; align-items: center; gap: 8px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .phone-float-2 {
+            position: absolute; bottom: 100px; right: -40px;
+            background: white; padding: 12px 16px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            font-size: 13px; font-weight: 600;
+            display: flex; align-items: center; gap: 8px;
+            animation: float 3s ease-in-out infinite 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 24px;
+            background: var(--light-gray);
+        }
+
+        .features-container { max-width: 1200px; margin: 0 auto; }
+
+        .section-header {
+            text-align: center; margin-bottom: 60px;
+        }
+
+        .section-label {
+            font-size: 13px; font-weight: 600;
+            color: var(--red); text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 40px; font-weight: 700;
+            letter-spacing: -1px; margin-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 16px; color: var(--gray);
+            max-width: 500px; margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: white; border-radius: 20px;
+            padding: 32px; border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--red);
+            box-shadow: 0 10px 30px rgba(229, 57, 53, 0.08);
+        }
+
+        .feature-icon {
+            width: 48px; height: 48px;
+            background: var(--red-light); border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; margin-bottom: 20px;
+        }
+
+        .feature-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+        .feature-text { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+        /* Stats */
+        .stats {
+            padding: 80px 24px;
+            background: var(--red); color: white;
+        }
+
+        .stats-container {
+            max-width: 1000px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 40px; text-align: center;
+        }
+
+        .stat-number { font-size: 40px; font-weight: 700; }
+        .stat-label { font-size: 14px; opacity: 0.8; }
+
+        /* Download */
+        .download {
+            padding: 100px 24px; text-align: center;
+        }
+
+        .download-container { max-width: 600px; margin: 0 auto; }
+
+        .download-card {
+            background: white; border-radius: 24px;
+            padding: 40px; border: 2px solid var(--border);
+        }
+
+        .download-logo {
+            width: 80px; height: 80px;
+            margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .download-logo img {
+            width: 100%; height: 100%;
+            object-fit: contain;
+            border-radius: 20px;
+        }
+
+        .download-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .download-info { color: var(--gray); margin-bottom: 30px; }
+
+        .download-btn {
+            background: var(--red); color: white;
+            padding: 16px 36px; border-radius: 30px;
+            text-decoration: none; font-weight: 600; font-size: 16px;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .download-btn:hover { background: var(--red-dark); transform: scale(1.02); }
+        .download-meta { margin-top: 20px; font-size: 12px; color: var(--gray); }
+
+        /* Footer */
+        footer {
+            background: var(--black); color: white;
+            padding: 60px 24px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand {
+            display: flex; align-items: center; gap: 10px;
+            margin-bottom: 16px; font-size: 20px; font-weight: 700;
+        }
+
+        .footer-brand-icon {
+            width: 36px; height: 36px;
+            background: var(--red);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+
+        .footer-brand-icon img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-text { color: #999; font-size: 13px; line-height: 1.6; max-width: 300px; }
+        .footer-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; color: #999; }
+
+        .footer-links {
+            list-style: none; display: flex; flex-direction: column; gap: 10px;
+        }
+
+        .footer-links a { color: #666; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+        .footer-links a:hover { color: white; }
+
+        .footer-bottom {
+            max-width: 1200px; margin: 40px auto 0;
+            padding-top: 20px; border-top: 1px solid #333;
+            text-align: center; color: #666; font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-title { font-size: 36px; }
+            .hero-stats { justify-content: center; }
+            .hero-buttons { justify-content: center; }
+            .hero-visual { display: none; }
+            .features-grid { grid-template-columns: 1fr; }
+            .stats-container { grid-template-columns: repeat(2, 1fr); }
+            .footer-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .phone-float-1, .phone-float-2 { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub Logo">
+                </div>
+                <span class="nav-logo-text">Blood Hub</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#stats" class="nav-link">Impact</a>
+                <a href="#download" class="nav-link">Download</a>
+                <a href="#download" class="nav-btn">Get the App</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <div class="hero-badge-dot"></div>
+                    Now Available in Bangladesh
+                </div>
+                <h1 class="hero-title">
+                    Save Lives with <span>Blood Hub</span>
+                </h1>
+                <p class="hero-description">
+                    Bangladesh's community-driven blood donation platform. 
+                    Connect with verified donors, get real-time alerts, and help 
+                    save lives in your community.
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">64</span>
+                        <span class="hero-stat-label">Districts Covered</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">8</span>
+                        <span class="hero-stat-label">Blood Groups</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">24/7</span>
+                        <span class="hero-stat-label">Availability</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="https://drive.google.com/uc?export=download&id=1AkSdTHOAI4-KPSkPhaqqgc0MUud_lmLt" class="btn-primary">
+                        📱 Download Now
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        Learn More →
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="phone-logo">
+                            <img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub Logo">
+                        </div>
+                        <div class="phone-title">Blood Hub</div>
+                        <div class="phone-text">Find donors, save lives, make a difference.</div>
+                    </div>
+                </div>
+                <div class="phone-float-1">🩸 A+ Donor Found!</div>
+                <div class="phone-float-2">✅ 5 Donors Ready</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="features-container">
+            <div class="section-header">
+                <div class="section-label">Why Blood Hub</div>
+                <h2 class="section-title">Everything You Need</h2>
+                <p class="section-description">
+                    A complete platform for blood donation management, 
+                    designed specifically for Bangladesh.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3 class="feature-title">Real-Time Notifications</h3>
+                    <p class="feature-text">Get instant alerts when someone needs your blood type in your district.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3 class="feature-title">Location-Based Matching</h3>
+                    <p class="feature-text">All 64 districts of Bangladesh covered with upazila-level precision.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3 class="feature-title">Verified Donors</h3>
+                    <p class="feature-text">Email-verified accounts ensure you connect with genuine donors only.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Donation Tracking</h3>
+                    <p class="feature-text">Track your history, see your impact, and earn recognition badges.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📞</div>
+                    <h3 class="feature-title">Direct Contact</h3>
+                    <p class="feature-text">Call donors or requesters directly. No middlemen, no delays.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Privacy First</h3>
+                    <p class="feature-text">Control your visibility and donation availability at all times.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats" id="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number">64</span>
+                <span class="stat-label">Districts</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Upazilas</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">8</span>
+                <span class="stat-label">Blood Groups</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Available</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="download" id="download">
+        <div class="download-container">
+            <div class="download-card">
+                <div class="download-logo">
+                    <img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub Logo">
+                </div>
+                <h2 class="download-title">Get Blood Hub</h2>
+                <p class="download-info">
+                    Download the APK and start saving lives today. 
+                    Compatible with Android 5.0 and above.
+                </p>
+                <a href="https://drive.google.com/uc?export=download&id=1AkSdTHOAI4-KPSkPhaqqgc0MUud_lmLt" class="download-btn">
+                    📥 Download for Android
+                </a>
+                <p class="download-meta">
+                    Version 1.0.0 • Free • No Ads<br>
+                    Made with ❤️ in Bangladesh
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-brand">
+                    <div class="footer-brand-icon">
+                        <img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub Logo">
+                    </div>
+                    Blood Hub
+                </div>
+                <p class="footer-text">
+                    Bangladesh's community-driven blood donation platform. 
+                    Connecting donors with those in need, one drop at a time.
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-title">Features</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Find Donors</a></li>
+                    <li><a href="#">Blood Requests</a></li>
+                    <li><a href="#">Notifications</a></li>
+                    <li><a href="#">Donation History</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Telegram</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                    <li><a href="#">Email Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 Blood Hub. All rights reserved. Made with ❤️ in Bangladesh.
+        </div>
+    </footer>
+
+</body>
+</html>
