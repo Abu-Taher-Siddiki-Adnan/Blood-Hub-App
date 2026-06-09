@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://blood-hub-website.vercel.app/sitemap.xml
