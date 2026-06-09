@@ -1,1010 +1,1934 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blood Hub - Blood Donation Platform in Bangladesh</title>
-<meta name="description" content="Blood Hub connects verified blood donors and recipients across Bangladesh through real-time matching, emergency alerts, and location-based search.">
-<meta name="keywords"
-content="Blood Hub, blood donation Bangladesh, blood donor app, blood donor finder, blood request app, blood donation platform">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Hub | Blood Donation App in Bangladesh | Find Blood Donors Fast</title>
+  <meta name="description"
+    content="Blood Hub is a blood donation app in Bangladesh that helps patients find verified blood donors quickly. Search donors by blood group, district, and upazila with real-time emergency alerts.">
+  <meta name="keywords"
+    content="Blood Hub, blood donation app Bangladesh, blood donor Bangladesh, find blood donor, blood request app, emergency blood donor, donate blood Bangladesh">
 
-<meta property="og:title" content="Blood Hub">
-<meta property="og:description"
-content="Blood donation platform connecting donors and recipients across Bangladesh.">
-<meta property="og:type" content="website">
-<meta property="og:url"
-content="https://blood-hub-website.vercel.app">  
-<link rel="icon" href="https://i.ibb.co.com/1txKKfhk/logo.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --red: #D92B2B;
-  --red-2: #FF3B3B;
-  --red-dim: rgba(217,43,43,0.1);
-  --red-glow: rgba(217,43,43,0.22);
-  --black: #0A0A0B;
-  --surface: #111114;
-  --surface-2: #18181C;
-  --surface-3: #202027;
-  --border: rgba(255,255,255,0.07);
-  --border-2: rgba(255,255,255,0.12);
-  --text: #F0EEE8;
-  --text-2: #9B9A94;
-  --text-3: #5A5955;
-  --white: #FFFFFF;
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
-}
+  <meta property="og:title" content="Blood Hub - Blood Donation App in Bangladesh">
+  <meta property="og:description" content="Find verified blood donors quickly across Bangladesh.">
+  <meta property="og:image" content="https://i.ibb.co.com/1txKKfhk/logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blood-hub-website.vercel.app/">
+  <link rel="icon" href="https://i.ibb.co.com/1txKKfhk/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="canonical" href="https://blood-hub-website.vercel.app/">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --red: #D92B2B;
+      --red-2: #FF3B3B;
+      --red-dim: rgba(217, 43, 43, 0.1);
+      --red-glow: rgba(217, 43, 43, 0.22);
+      --black: #0A0A0B;
+      --surface: #111114;
+      --surface-2: #18181C;
+      --surface-3: #202027;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-2: rgba(255, 255, 255, 0.12);
+      --text: #F0EEE8;
+      --text-2: #9B9A94;
+      --text-3: #5A5955;
+      --white: #FFFFFF;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  font-family: var(--font-body);
-  background: var(--black);
-  color: var(--text);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-/* ─── NOISE OVERLAY ─── */
-body::before {
-  content: '';
-  position: fixed; inset: 0; z-index: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  opacity: .55;
-}
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: .55;
+    }
 
-.container { max-width: 1160px; margin: 0 auto; padding: 0 28px; position: relative; }
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+    }
 
-/* ─── NAVIGATION ─── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: 18px 0;
-  transition: background .3s, border-color .3s;
-}
-nav.scrolled {
-  background: rgba(10,10,11,0.88);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      transition: background .3s, border-color .3s;
+    }
 
-.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
-.nav-logo-mark {
-  width: 32px; height: 32px; border-radius: 8px;
-  background: var(--red);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-}
-.nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; }
-.nav-logo span { font-family: var(--font-display); font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
+    nav.scrolled {
+      background: rgba(10, 10, 11, 0.88);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
 
-.nav-links { display: flex; gap: 32px; align-items: center; }
-.nav-link { text-decoration: none; color: var(--text-2); font-size: 13px; font-weight: 400; transition: color .2s; letter-spacing: .01em; }
-.nav-link:hover { color: var(--text); }
-.nav-cta {
-  background: var(--red); color: white;
-  padding: 8px 20px; border-radius: 100px;
-  text-decoration: none; font-size: 13px; font-weight: 500;
-  transition: all .2s;
-  letter-spacing: .01em;
-}
-.nav-cta:hover { background: var(--red-2); box-shadow: 0 0 24px var(--red-glow); }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all .3s; }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+    }
 
-/* ─── HERO ─── */
-.hero {
-  min-height: 100vh;
-  display: flex; align-items: center;
-  padding: 120px 0 80px;
-  position: relative;
-  overflow: hidden;
-}
+    .nav-logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-/* Radial glow behind hero */
-.hero::after {
-  content: '';
-  position: absolute;
-  top: -10%; left: 50%; transform: translateX(-50%);
-  width: 900px; height: 700px;
-  background: radial-gradient(ellipse at center, rgba(217,43,43,0.13) 0%, transparent 65%);
-  pointer-events: none;
-}
+    .nav-logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
+    .nav-logo span {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
 
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  border: 1px solid rgba(217,43,43,0.35);
-  background: rgba(217,43,43,0.07);
-  padding: 5px 12px 5px 8px;
-  border-radius: 100px;
-  font-size: 11.5px; font-weight: 500; color: #FF8080;
-  margin-bottom: 24px; letter-spacing: .04em;
-  text-transform: uppercase;
-}
-.eyebrow-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--red-2);
-  animation: blink 2s ease-in-out infinite;
-}
-@keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
 
-h1 {
-  font-family: var(--font-display);
-  font-size: 62px; font-weight: 800;
-  line-height: 1.02; letter-spacing: -2px;
-  margin-bottom: 22px;
-}
-h1 em { font-style: normal; color: var(--red-2); }
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-2);
+      font-size: 13px;
+      font-weight: 400;
+      transition: color .2s;
+      letter-spacing: .01em;
+    }
 
-.hero-desc {
-  font-size: 16px; color: var(--text-2);
-  line-height: 1.7; max-width: 460px;
-  margin-bottom: 36px;
-  font-weight: 300;
-}
+    .nav-link:hover {
+      color: var(--text);
+    }
 
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+    .nav-cta {
+      background: var(--red);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all .2s;
+      letter-spacing: .01em;
+    }
 
-.btn-dl {
-  display: inline-flex; align-items: center; gap: 9px;
-  background: var(--red); color: white;
-  padding: 14px 26px; border-radius: 100px;
-  text-decoration: none; font-size: 14px; font-weight: 500;
-  transition: all .25s;
-  border: none; cursor: pointer;
-}
-.btn-dl:hover { background: var(--red-2); transform: translateY(-1px); box-shadow: 0 12px 32px var(--red-glow); }
-.btn-dl svg { flex-shrink: 0; }
+    .nav-cta:hover {
+      background: var(--red-2);
+      box-shadow: 0 0 24px var(--red-glow);
+    }
 
-.btn-ghost {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: transparent; color: var(--text-2);
-  padding: 14px 24px; border-radius: 100px;
-  text-decoration: none; font-size: 14px; font-weight: 400;
-  border: 1px solid var(--border-2);
-  transition: all .2s;
-}
-.btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
 
-.trust-chips { display: flex; flex-wrap: wrap; gap: 10px; }
-.chip {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 12px; color: var(--text-3); font-weight: 400;
-}
-.chip::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text);
+      transition: all .3s;
+    }
 
-/* ─── HERO VISUAL ─── */
-.hero-visual { position: relative; }
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
 
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    /* Radial glow behind hero */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 700px;
+      background: radial-gradient(ellipse at center, rgba(217, 43, 43, 0.13) 0%, transparent 65%);
+      pointer-events: none;
+    }
 
-.screenshot-stack {
-  position: relative;
-  width: 100%; max-width: 380px;
-  margin: 0 auto;
-}
-.screenshot-main {
-  width: 100%;
-  border-radius: 24px;
-  box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 0 1px var(--border-2);
-  background: linear-gradient(135deg, var(--red) 0%, #8B0000 100%);
-  padding: 40px;
-  display: block;
-  animation: float 5s ease-in-out infinite;
-}
-.screenshot-float {
-  position: absolute;
-  width: 160px;
-  border-radius: 16px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.45), 0 0 0 1px var(--border-2);
-  background: var(--surface-2);
-  padding: 18px;
-  display: block;
-}
-.screenshot-float-1 {
-  top: -24px; right: -44px;
-  animation: float 5s ease-in-out infinite .8s;
-}
-.screenshot-float-2 {
-  bottom: -16px; left: -36px;
-  animation: float 5s ease-in-out infinite 1.6s;
-}
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
 
-/* Floating badge cards */
-.float-card {
-  position: absolute;
-  background: var(--surface-2);
-  border: 1px solid var(--border-2);
-  border-radius: 14px;
-  padding: 12px 16px;
-  font-size: 12px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  z-index: 3;
-}
-.float-card-1 {
-  right: -40px; top: 30px;
-  animation: float 5s ease-in-out infinite .8s;
-}
-.float-card-2 {
-  left: -50px; bottom: 60px;
-  animation: float 5s ease-in-out infinite 1.6s;
-}
-.float-card-label { font-size: 10px; color: var(--text-3); margin-bottom: 4px; font-weight: 400; }
-.float-card-value { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--text); line-height: 1; }
-.float-card-sub { font-size: 10px; color: var(--text-3); margin-top: 2px; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(217, 43, 43, 0.35);
+      background: rgba(217, 43, 43, 0.07);
+      padding: 5px 12px 5px 8px;
+      border-radius: 100px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #FF8080;
+      margin-bottom: 24px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
 
-/* ─── SECTION SHARED ─── */
-.section { padding: 100px 0; }
-.section-alt { background: var(--surface); }
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red-2);
+      animation: blink 2s ease-in-out infinite;
+    }
 
-.eyebrow-label {
-  font-size: 11px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: .1em; color: var(--red-2);
-  margin-bottom: 14px;
-  display: block;
-}
-h2 {
-  font-family: var(--font-display);
-  font-size: 44px; font-weight: 700;
-  line-height: 1.08; letter-spacing: -1.2px;
-  margin-bottom: 16px;
-}
-.section-desc { font-size: 16px; color: var(--text-2); line-height: 1.7; max-width: 540px; font-weight: 300; }
+    @keyframes blink {
 
-/* ─── URGENCY STRIP ─── */
-.urgency-strip {
-  background: var(--red);
-  padding: 12px 0;
-  overflow: hidden;
-  position: relative;
-}
-.strip-track {
-  display: flex; gap: 60px;
-  animation: marquee 18s linear infinite;
-  white-space: nowrap;
-}
-@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-.strip-item {
-  display: flex; align-items: center; gap: 10px;
-  font-family: var(--font-display);
-  font-size: 13px; font-weight: 600;
-  color: white; letter-spacing: .02em;
-  flex-shrink: 0;
-}
-.strip-sep { opacity: .5; }
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
 
-/* ─── PROBLEM/SOLUTION ─── */
-.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 60px; }
-.problem-card {
-  background: var(--surface-2);
-  padding: 44px;
-}
-.problem-card:first-child { border-radius: 20px 0 0 20px; }
-.problem-card:last-child { border-radius: 0 20px 20px 0; border-left: 2px solid var(--red); }
-.card-icon { font-size: 28px; margin-bottom: 20px; }
-.card-title { font-family: var(--font-display); font-size: 21px; font-weight: 700; margin-bottom: 14px; }
-.card-body { font-size: 15px; color: var(--text-2); line-height: 1.75; font-weight: 300; }
-.card-body strong { color: var(--text); font-weight: 500; }
+      50% {
+        opacity: .4;
+        transform: scale(.8)
+      }
+    }
 
-/* ─── FEATURES ─── */
-.features-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 52px; }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 62px;
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
 
-.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
-.feature-cell {
-  background: var(--surface-2);
-  padding: 32px 28px;
-  transition: background .2s;
-}
-.feature-cell:hover { background: var(--surface-3); }
-.feature-num { font-family: var(--font-display); font-size: 11px; font-weight: 700; color: var(--text-3); letter-spacing: .08em; margin-bottom: 20px; }
-.feature-icon-wrap {
-  width: 44px; height: 44px; border-radius: 12px;
-  background: var(--red-dim); border: 1px solid rgba(217,43,43,0.2);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px; margin-bottom: 16px;
-}
-.feature-title { font-family: var(--font-display); font-size: 17px; font-weight: 600; margin-bottom: 8px; }
-.feature-desc { font-size: 13.5px; color: var(--text-2); line-height: 1.65; font-weight: 300; }
+    h1 em {
+      font-style: normal;
+      color: var(--red-2);
+    }
 
-/* ─── HOW IT WORKS ─── */
-.steps-wrap { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 60px; position: relative; }
-.steps-wrap::after {
-  content: '';
-  position: absolute;
-  top: 28px; left: 10%; right: 10%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--red) 20%, var(--red) 80%, transparent);
-  opacity: .25;
-}
-.step-item { text-align: center; padding: 0 12px; position: relative; z-index: 1; }
-.step-num {
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  border: 1px solid var(--border-2);
-  background: var(--surface-2);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text);
-  margin: 0 auto 20px;
-  transition: all .25s;
-}
-.step-item:hover .step-num { border-color: var(--red); color: var(--red-2); box-shadow: 0 0 20px var(--red-glow); }
-.step-title { font-family: var(--font-display); font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-.step-desc { font-size: 12px; color: var(--text-3); line-height: 1.5; font-weight: 300; }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-2);
+      line-height: 1.7;
+      max-width: 460px;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
 
-/* ─── BUILT FOR BD ─── */
-.bd-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 52px; }
-.bd-card {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px 22px;
-  transition: all .25s;
-}
-.bd-card:hover { border-color: var(--border-2); transform: translateY(-2px); }
-.bd-card-icon { font-size: 28px; margin-bottom: 14px; }
-.bd-card-title { font-family: var(--font-display); font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-.bd-card-desc { font-size: 12.5px; color: var(--text-3); line-height: 1.6; font-weight: 300; }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
 
-/* ─── STATS ─── */
-.stats-section { padding: 80px 0; }
-.stats-inner {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 60px;
-  display: grid; grid-template-columns: 1fr 2fr;
-  gap: 60px; align-items: center;
-}
-.stats-label-col .eyebrow-label { margin-bottom: 10px; }
-.stats-label-col h3 { font-family: var(--font-display); font-size: 28px; font-weight: 700; line-height: 1.15; }
-.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-.stat-item { border-left: 2px solid var(--red); padding-left: 20px; }
-.stat-num { font-family: var(--font-display); font-size: 40px; font-weight: 800; color: var(--text); line-height: 1; }
-.stat-lbl { font-size: 13px; color: var(--text-3); margin-top: 4px; font-weight: 300; }
+    .btn-dl {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--red);
+      color: white;
+      padding: 14px 26px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all .25s;
+      border: none;
+      cursor: pointer;
+    }
 
-/* ─── FAQ ─── */
-.faq-list { margin-top: 52px; max-width: 720px; }
-.faq-item {
-  border-bottom: 1px solid var(--border);
-  overflow: hidden;
-}
-.faq-q {
-  width: 100%; text-align: left; background: none; border: none;
-  padding: 22px 0;
-  display: flex; justify-content: space-between; align-items: center;
-  cursor: pointer; color: var(--text);
-  font-family: var(--font-display); font-size: 16px; font-weight: 600;
-  transition: color .2s;
-  gap: 16px;
-}
-.faq-q:hover { color: var(--red-2); }
-.faq-icon {
-  width: 24px; height: 24px; border-radius: 50%;
-  border: 1px solid var(--border-2);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; transition: all .3s;
-  font-size: 14px; color: var(--text-2);
-}
-.faq-item.open .faq-icon { background: var(--red); border-color: var(--red); color: white; transform: rotate(45deg); }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
-.faq-item.open .faq-a { max-height: 300px; }
-.faq-a p { font-size: 14px; color: var(--text-2); line-height: 1.75; padding-bottom: 22px; font-weight: 300; }
+    .btn-dl:hover {
+      background: var(--red-2);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 32px var(--red-glow);
+    }
 
-/* ─── FOUNDER ─── */
-.founder-section { padding: 80px 0; }
-.founder-inner {
-  display: grid; grid-template-columns: 1fr 2fr;
-  gap: 60px; align-items: center;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 60px;
-}
-.founder-left { text-align: center; }
-.founder-avatar {
-  width: 100px; height: 100px; border-radius: 50%;
-  background: var(--red-dim); border: 2px solid rgba(217,43,43,0.3);
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 16px;
-  font-family: var(--font-display); font-size: 32px; font-weight: 700; color: var(--red-2);
-}
-.founder-name { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-.founder-role { font-size: 13px; color: var(--text-3); margin-bottom: 20px; font-weight: 300; }
-.founder-socials { display: flex; gap: 10px; justify-content: center; }
-.social-btn {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--surface-3); border: 1px solid var(--border-2);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--text-2); text-decoration: none;
-  transition: all .2s; font-size: 14px;
-}
-.social-btn:hover { border-color: var(--red); color: var(--red-2); }
-.founder-quote { font-size: 17px; line-height: 1.8; color: var(--text-2); font-weight: 300; font-style: italic; }
-.founder-quote::before { content: '\201C'; font-family: var(--font-display); font-size: 64px; color: var(--red); line-height: .8; display: block; margin-bottom: 8px; font-style: normal; }
+    .btn-dl svg {
+      flex-shrink: 0;
+    }
 
-/* ─── DOWNLOAD ─── */
-.download-section {
-  padding: 100px 0;
-  position: relative;
-  overflow: hidden;
-}
-.download-section::before {
-  content: '';
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  width: 700px; height: 500px;
-  background: radial-gradient(ellipse at center, rgba(217,43,43,0.15) 0%, transparent 65%);
-  pointer-events: none;
-}
-.download-card {
-  max-width: 580px; margin: 0 auto;
-  background: var(--surface-2);
-  border: 1px solid var(--border-2);
-  border-radius: 28px;
-  padding: 56px 48px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.03), 0 40px 80px rgba(0,0,0,0.4);
-}
-.dl-logo {
-  width: 72px; height: 72px; border-radius: 20px;
-  background: var(--red);
-  margin: 0 auto 24px;
-  overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-}
-.dl-logo img { width: 100%; height: 100%; object-fit: contain; }
-.dl-title { font-family: var(--font-display); font-size: 32px; font-weight: 700; line-height: 1.1; margin-bottom: 10px; letter-spacing: -0.5px; }
-.dl-desc { font-size: 15px; color: var(--text-2); margin-bottom: 32px; font-weight: 300; line-height: 1.6; }
-.dl-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--red); color: white;
-  padding: 16px 34px; border-radius: 100px;
-  text-decoration: none; font-size: 15px; font-weight: 500;
-  transition: all .25s; margin-bottom: 12px;
-}
-.dl-btn:hover { background: var(--red-2); transform: translateY(-2px); box-shadow: 0 16px 40px var(--red-glow); }
-.dl-ios {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: transparent; color: var(--text-2);
-  padding: 12px 28px; border-radius: 100px;
-  text-decoration: none; font-size: 14px; font-weight: 400;
-  border: 1px solid var(--border-2);
-  transition: all .2s; margin-bottom: 28px; margin-left: 8px;
-}
-.dl-ios:hover { color: var(--text); border-color: var(--border-2); }
-.dl-actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-.dl-meta { font-size: 12px; color: var(--text-3); margin-top: 16px; }
-.dl-meta span { margin: 0 6px; }
-.dl-meta span::before { content: '·'; margin-right: 12px; }
-.dl-meta span:first-child::before { content: ''; margin: 0; }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text-2);
+      padding: 14px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      border: 1px solid var(--border-2);
+      transition: all .2s;
+    }
 
-/* ─── FOOTER ─── */
-footer {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  padding: 60px 0 28px;
-}
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-.footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-.footer-brand-mark {
-  width: 28px; height: 28px; border-radius: 7px;
-  background: var(--red); overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-}
-.footer-brand-mark img { width: 100%; height: 100%; object-fit: cover; }
-.footer-brand-name { font-family: var(--font-display); font-size: 16px; font-weight: 700; }
-.footer-tagline { font-size: 13px; color: var(--text-3); line-height: 1.65; max-width: 250px; font-weight: 300; }
-.footer-col-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--text-3); margin-bottom: 16px; }
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-links a { text-decoration: none; font-size: 13px; color: var(--text-3); transition: color .2s; font-weight: 300; }
-.footer-links a:hover { color: var(--text); }
-.footer-bottom { padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-.footer-copy { font-size: 12px; color: var(--text-3); font-weight: 300; }
-.footer-legal { display: flex; gap: 20px; }
-.footer-legal a { font-size: 12px; color: var(--text-3); text-decoration: none; transition: color .2s; }
-.footer-legal a:hover { color: var(--text-2); }
+    .btn-ghost:hover {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
 
-/* ─── MOBILE ─── */
-@media (max-width: 900px) {
-  h1 { font-size: 40px; letter-spacing: -1.2px; }
-  h2 { font-size: 32px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 56px; }
-  .hero-visual { order: -1; }
-  .phone-mockup { width: 220px; }
-  .float-card-1 { right: 0; }
-  .float-card-2 { left: 0; }
-  .features-header { grid-template-columns: 1fr; gap: 20px; }
-  .features-grid { grid-template-columns: 1fr 1fr; }
-  .steps-wrap { grid-template-columns: 1fr 1fr; gap: 28px; }
-  .steps-wrap::after { display: none; }
-  .bd-grid { grid-template-columns: 1fr 1fr; }
-  .stats-inner { grid-template-columns: 1fr; gap: 32px; padding: 36px; }
-  .founder-inner { grid-template-columns: 1fr; gap: 32px; padding: 36px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .problem-grid { grid-template-columns: 1fr; }
-  .problem-card:first-child { border-radius: 20px 20px 0 0; }
-  .problem-card:last-child { border-radius: 0 0 20px 20px; border-left: none; border-top: 2px solid var(--red); }
-  .download-card { padding: 40px 28px; }
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-}
-@media (max-width: 540px) {
-  .features-grid { grid-template-columns: 1fr; }
-  .bd-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .steps-wrap { grid-template-columns: 1fr; }
-  h2 { font-size: 28px; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .dl-actions { flex-direction: column; align-items: center; }
-}
+    .trust-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-/* ─── MOBILE NAV OVERLAY ─── */
-.mobile-nav {
-  display: none; position: fixed; inset: 0; z-index: 99;
-  background: var(--black);
-  flex-direction: column; align-items: center; justify-content: center; gap: 32px;
-}
-.mobile-nav.open { display: flex; }
-.mobile-nav a { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; transition: color .2s; }
-.mobile-nav a:hover { color: var(--red-2); }
-.mobile-nav-close { position: absolute; top: 24px; right: 28px; font-size: 28px; cursor: pointer; color: var(--text-2); background: none; border: none; }
+    .chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-3);
+      font-weight: 400;
+    }
 
-/* ─── FADE IN ─── */
-.fade-in { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
-.fade-in.visible { opacity: 1; transform: none; }
-</style>
+    .chip::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    /* ─── HERO VISUAL ─── */
+    .hero-visual {
+      position: relative;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+    }
+
+    .screenshot-stack {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .screenshot-main {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-2);
+      background: linear-gradient(135deg, var(--red) 0%, #8B0000 100%);
+      padding: 40px;
+      display: block;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .screenshot-float {
+      position: absolute;
+      width: 160px;
+      border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--border-2);
+      background: var(--surface-2);
+      padding: 18px;
+      display: block;
+    }
+
+    .screenshot-float-1 {
+      top: -24px;
+      right: -44px;
+      animation: float 5s ease-in-out infinite .8s;
+    }
+
+    .screenshot-float-2 {
+      bottom: -16px;
+      left: -36px;
+      animation: float 5s ease-in-out infinite 1.6s;
+    }
+
+    /* Floating badge cards */
+    .float-card {
+      position: absolute;
+      background: var(--surface-2);
+      border: 1px solid var(--border-2);
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      z-index: 3;
+    }
+
+    .float-card-1 {
+      right: -40px;
+      top: 30px;
+      animation: float 5s ease-in-out infinite .8s;
+    }
+
+    .float-card-2 {
+      left: -50px;
+      bottom: 60px;
+      animation: float 5s ease-in-out infinite 1.6s;
+    }
+
+    .float-card-label {
+      font-size: 10px;
+      color: var(--text-3);
+      margin-bottom: 4px;
+      font-weight: 400;
+    }
+
+    .float-card-value {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .float-card-sub {
+      font-size: 10px;
+      color: var(--text-3);
+      margin-top: 2px;
+    }
+
+    /* ─── SECTION SHARED ─── */
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-alt {
+      background: var(--surface);
+    }
+
+    .eyebrow-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--red-2);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -1.2px;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-2);
+      line-height: 1.7;
+      max-width: 540px;
+      font-weight: 300;
+    }
+
+    /* ─── URGENCY STRIP ─── */
+    .urgency-strip {
+      background: var(--red);
+      padding: 12px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .strip-track {
+      display: flex;
+      gap: 60px;
+      animation: marquee 18s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    .strip-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+      letter-spacing: .02em;
+      flex-shrink: 0;
+    }
+
+    .strip-sep {
+      opacity: .5;
+    }
+
+    /* ─── PROBLEM/SOLUTION ─── */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .problem-card {
+      background: var(--surface-2);
+      padding: 44px;
+    }
+
+    .problem-card:first-child {
+      border-radius: 20px 0 0 20px;
+    }
+
+    .problem-card:last-child {
+      border-radius: 0 20px 20px 0;
+      border-left: 2px solid var(--red);
+    }
+
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .card-body {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .card-body strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ─── FEATURES ─── */
+    .features-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 52px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .feature-cell {
+      background: var(--surface-2);
+      padding: 32px 28px;
+      transition: background .2s;
+    }
+
+    .feature-cell:hover {
+      background: var(--surface-3);
+    }
+
+    .feature-num {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-3);
+      letter-spacing: .08em;
+      margin-bottom: 20px;
+    }
+
+    .feature-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--red-dim);
+      border: 1px solid rgba(217, 43, 43, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 13.5px;
+      color: var(--text-2);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .steps-wrap {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 60px;
+      position: relative;
+    }
+
+    .steps-wrap::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--red) 20%, var(--red) 80%, transparent);
+      opacity: .25;
+    }
+
+    .step-item {
+      text-align: center;
+      padding: 0 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1px solid var(--border-2);
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 auto 20px;
+      transition: all .25s;
+    }
+
+    .step-item:hover .step-num {
+      border-color: var(--red);
+      color: var(--red-2);
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 12px;
+      color: var(--text-3);
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    /* ─── BUILT FOR BD ─── */
+    .bd-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 52px;
+    }
+
+    .bd-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 22px;
+      transition: all .25s;
+    }
+
+    .bd-card:hover {
+      border-color: var(--border-2);
+      transform: translateY(-2px);
+    }
+
+    .bd-card-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .bd-card-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .bd-card-desc {
+      font-size: 12.5px;
+      color: var(--text-3);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ─── STATS ─── */
+    .stats-section {
+      padding: 80px 0;
+    }
+
+    .stats-inner {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .stats-label-col .eyebrow-label {
+      margin-bottom: 10px;
+    }
+
+    .stats-label-col h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .stat-item {
+      border-left: 2px solid var(--red);
+      padding-left: 20px;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .stat-lbl {
+      font-size: 13px;
+      color: var(--text-3);
+      margin-top: 4px;
+      font-weight: 300;
+    }
+
+    /* ─── FAQ ─── */
+    .faq-list {
+      margin-top: 52px;
+      max-width: 720px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      transition: color .2s;
+      gap: 16px;
+    }
+
+    .faq-q:hover {
+      color: var(--red-2);
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid var(--border-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all .3s;
+      font-size: 14px;
+      color: var(--text-2);
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--red);
+      border-color: var(--red);
+      color: white;
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+    }
+
+    .faq-a p {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.75;
+      padding-bottom: 22px;
+      font-weight: 300;
+    }
+
+    /* ─── FOUNDER ─── */
+    .founder-section {
+      padding: 80px 0;
+    }
+
+    .founder-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: center;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 60px;
+    }
+
+    .founder-left {
+      text-align: center;
+    }
+
+    .founder-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--red-dim);
+      border: 2px solid rgba(217, 43, 43, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--red-2);
+    }
+
+    .founder-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .founder-role {
+      font-size: 13px;
+      color: var(--text-3);
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .founder-socials {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--surface-3);
+      border: 1px solid var(--border-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-2);
+      text-decoration: none;
+      transition: all .2s;
+      font-size: 14px;
+    }
+
+    .social-btn:hover {
+      border-color: var(--red);
+      color: var(--red-2);
+    }
+
+    .founder-quote {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text-2);
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .founder-quote::before {
+      content: '\201C';
+      font-family: var(--font-display);
+      font-size: 64px;
+      color: var(--red);
+      line-height: .8;
+      display: block;
+      margin-bottom: 8px;
+      font-style: normal;
+    }
+
+    /* ─── DOWNLOAD ─── */
+    .download-section {
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(217, 43, 43, 0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .download-card {
+      max-width: 580px;
+      margin: 0 auto;
+      background: var(--surface-2);
+      border: 1px solid var(--border-2);
+      border-radius: 28px;
+      padding: 56px 48px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03), 0 40px 80px rgba(0, 0, 0, 0.4);
+    }
+
+    .dl-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: var(--red);
+      margin: 0 auto 24px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dl-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .dl-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .dl-desc {
+      font-size: 15px;
+      color: var(--text-2);
+      margin-bottom: 32px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: white;
+      padding: 16px 34px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all .25s;
+      margin-bottom: 12px;
+    }
+
+    .dl-btn:hover {
+      background: var(--red-2);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px var(--red-glow);
+    }
+
+    .dl-ios {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text-2);
+      padding: 12px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      border: 1px solid var(--border-2);
+      transition: all .2s;
+      margin-bottom: 28px;
+      margin-left: 8px;
+    }
+
+    .dl-ios:hover {
+      color: var(--text);
+      border-color: var(--border-2);
+    }
+
+    .dl-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .dl-meta {
+      font-size: 12px;
+      color: var(--text-3);
+      margin-top: 16px;
+    }
+
+    .dl-meta span {
+      margin: 0 6px;
+    }
+
+    .dl-meta span::before {
+      content: '·';
+      margin-right: 12px;
+    }
+
+    .dl-meta span:first-child::before {
+      content: '';
+      margin: 0;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--red);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-3);
+      line-height: 1.65;
+      max-width: 250px;
+      font-weight: 300;
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--text-3);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links li a {
+      text-decoration: none;
+      font-size: 13px;
+      color: var(--text-3);
+      transition: color .2s;
+      font-weight: 300;
+    }
+
+    .footer-links li a:hover {
+      color: var(--text);
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-3);
+      font-weight: 300;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal a {
+      font-size: 12px;
+      color: var(--text-3);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-legal a:hover {
+      color: var(--text-2);
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      h1 {
+        font-size: 40px;
+        letter-spacing: -1.2px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .phone-mockup {
+        width: 220px;
+      }
+
+      .float-card-1 {
+        right: 0;
+      }
+
+      .float-card-2 {
+        left: 0;
+      }
+
+      .features-header {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .steps-wrap {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .steps-wrap::after {
+        display: none;
+      }
+
+      .bd-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 36px;
+      }
+
+      .founder-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 36px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .problem-card:first-child {
+        border-radius: 20px 20px 0 0;
+      }
+
+      .problem-card:last-child {
+        border-radius: 0 0 20px 20px;
+        border-left: none;
+        border-top: 2px solid var(--red);
+      }
+
+      .download-card {
+        padding: 40px 28px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bd-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .steps-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dl-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* ─── MOBILE NAV OVERLAY ─── */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: var(--black);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--red-2);
+    }
+
+    .mobile-nav-close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--text-2);
+      background: none;
+      border: none;
+    }
+
+    /* ─── FADE IN ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"MobileApplication",
+      "name":"Blood Hub",
+      "applicationCategory":"HealthApplication",
+      "operatingSystem":"Android",
+      "description":"Blood donation app for Bangladesh",
+      "url":"https://blood-hub-website.vercel.app/"
+    }
+  </script>
 </head>
+
 <body>
 
-<!-- Mobile nav overlay -->
-<div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
-  <a href="#features" onclick="closeMobileNav()">Features</a>
-  <a href="#how" onclick="closeMobileNav()">How It Works</a>
-  <a href="#faq" onclick="closeMobileNav()">FAQ</a>
-  <a href="#download" onclick="closeMobileNav()" style="color:var(--red-2)">Download</a>
-</div>
-
-<!-- Navigation -->
-<nav id="nav">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <div class="nav-logo-mark"><img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub logo"></div>
-        <span>Blood Hub</span>
-      </a>
-      <div class="nav-links">
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#how" class="nav-link">How It Works</a>
-        <a href="#faq" class="nav-link">FAQ</a>
-        <a href="#download" class="nav-cta">Download</a>
-      </div>
-      <div class="hamburger" onclick="openMobileNav()">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+    <a href="#features" onclick="closeMobileNav()">Features</a>
+    <a href="#how" onclick="closeMobileNav()">How It Works</a>
+    <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+    <a href="#download" onclick="closeMobileNav()" style="color:var(--red-2)">Download</a>
   </div>
-</nav>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <div>
-        <div class="hero-eyebrow"><div class="eyebrow-dot"></div>Available across Bangladesh</div>
-        <h1>Find blood donors<br>faster during <em>emergencies</em></h1>
-        <p class="hero-desc">Blood Hub connects verified donors and recipients across Bangladesh through real-time matching, emergency alerts, and location-based search — all in one app.</p>
-        <div class="hero-actions">
-          <a href="#download" class="btn-dl">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download for Android
-          </a>
-          <a href="#how" class="btn-ghost">See how it works →</a>
-        </div>
-        <div class="trust-chips">
-          <div class="chip">Verified accounts</div>
-          <div class="chip">Real-time alerts</div>
-          <div class="chip">Blood compatibility matching</div>
-          <div class="chip">All 64 districts</div>
-        </div>
-      </div>
-
-      <!-- Hero Visual -->
-      <div class="hero-visual">
-        <div class="screenshot-stack">
-          <img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub app dashboard" class="screenshot-main">
-          <img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub donor search" class="screenshot-float screenshot-float-1">
-          <img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub notifications" class="screenshot-float screenshot-float-2">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Urgency strip -->
-<div class="urgency-strip">
-  <div class="strip-track">
-    <div class="strip-item">🩸 64 Districts covered</div><div class="strip-item strip-sep">—</div>
-    <div class="strip-item">⚡ Real-time notifications</div><div class="strip-item strip-sep">—</div>
-    <div class="strip-item">✓ Verified donors only</div><div class="strip-item strip-sep">—</div>
-    <div class="strip-item">🗺 500+ Upazilas</div><div class="strip-item strip-sep">—</div>
-    <div class="strip-item">🩸 8 blood groups matched</div><div class="strip-item strip-sep">—</div>
-    <div class="strip-item">📱 Free · No ads · Android 5.0+</div><div class="strip-item strip-sep">—</div>
-    <!-- duplicate for seamless loop -->
-    <div class="strip-item">🩸 64 Districts covered</div><div class="strip-item strip-sep">—</div>
-    <div class="strip-item">⚡ Real-time notifications</div><div class="strip-item strip-sep">—</div>
-    <div class="strip-item">✓ Verified donors only</div><div class="strip-item strip-sep">—</div>
-    <div class="strip-item">🗺 500+ Upazilas</div><div class="strip-item strip-sep">—</div>
-    <div class="strip-item">🩸 8 blood groups matched</div><div class="strip-item strip-sep">—</div>
-    <div class="strip-item">📱 Free · No ads · Android 5.0+</div><div class="strip-item strip-sep">—</div>
-  </div>
-</div>
-
-<!-- Problem / Solution -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="fade-in">
-      <span class="eyebrow-label">Why it matters</span>
-      <h2>A life-or-death problem<br>needs a real solution</h2>
-    </div>
-    <div class="problem-grid fade-in">
-      <div class="problem-card">
-        <div class="card-title">The old way is broken</div>
-        <p class="card-body">Families post frantically on Facebook. They call every contact. They wait. Minutes turn to hours. <strong>Every minute without blood is critical</strong> — and the system wasn't built to help them.</p>
-      </div>
-      <div class="problem-card">
-        <div class="card-title">Blood Hub changes that</div>
-        <p class="card-body">Create a request in seconds. Compatible donors in your district get notified <strong>instantly via push notification</strong>. They respond, confirm, and you get their contact. One platform. Zero wasted time.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Features -->
-<section class="section" id="features">
-  <div class="container">
-    <div class="features-header fade-in">
-      <div>
-        <span class="eyebrow-label">Core features</span>
-        <h2>Everything you need<br>to save a life</h2>
-      </div>
-      <p class="section-desc">Blood Hub is a complete platform for blood donation management — designed for real emergencies across Bangladesh.</p>
-    </div>
-    <div class="features-grid fade-in">
-      <div class="feature-cell">
-        <div class="feature-num">01</div>
-        <div class="feature-title">Verified accounts</div>
-        <p class="feature-desc">Secure registration with email verification. Only real, confirmed accounts can donate or post requests.</p>
-      </div>
-      <div class="feature-cell">
-        <div class="feature-num">02</div>
-        <div class="feature-title">Blood requests</div>
-        <p class="feature-desc">Create a detailed request and instantly alert compatible donors in your district. Takes under 30 seconds.</p>
-      </div>
-      <div class="feature-cell">
-        <div class="feature-num">03</div>
-        <div class="feature-title">Donor search</div>
-        <p class="feature-desc">Search by blood group, district, and upazila. Filter by availability. Find the right person, fast.</p>
-      </div>
-      <div class="feature-cell">
-        <div class="feature-num">04</div>
-        <div class="feature-title">Instant notifications</div>
-        <p class="feature-desc">Firebase Cloud Messaging delivers emergency alerts in real time. Donors are notified the moment a match is found.</p>
-      </div>
-      <div class="feature-cell">
-        <div class="feature-num">05</div>
-        <div class="feature-title">Donation tracking</div>
-        <p class="feature-desc">Track your donation history, eligibility window, and lifetime contributions — all from your profile.</p>
-      </div>
-      <div class="feature-cell">
-        <div class="feature-num">06</div>
-        <div class="feature-title">Profile control</div>
-        <p class="feature-desc">Manage your availability, blood group, location, and preferences. Go offline when unavailable, back on in seconds.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- How It Works -->
-<section class="section section-alt" id="how">
-  <div class="container">
-    <div style="text-align:center" class="fade-in">
-      <span class="eyebrow-label">Process</span>
-      <h2>From request to donation<br>in five steps</h2>
-    </div>
-    <div class="steps-wrap fade-in">
-      <div class="step-item">
-        <div class="step-num">1</div>
-        <div class="step-title">Create request</div>
-        <p class="step-desc">Enter patient details, blood group, hospital, and urgency level</p>
-      </div>
-      <div class="step-item">
-        <div class="step-num">2</div>
-        <div class="step-title">System matches</div>
-        <p class="step-desc">Blood Hub finds compatible, available donors in your area</p>
-      </div>
-      <div class="step-item">
-        <div class="step-num">3</div>
-        <div class="step-title">Alerts sent</div>
-        <p class="step-desc">Instant push notifications go to every matched donor</p>
-      </div>
-      <div class="step-item">
-        <div class="step-num">4</div>
-        <div class="step-title">Donor responds</div>
-        <p class="step-desc">Donor confirms interest and contact details are shared</p>
-      </div>
-      <div class="step-item">
-        <div class="step-num">5</div>
-        <div class="step-title">Donation done</div>
-        <p class="step-desc">Request is fulfilled and donor history is updated</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Built for Bangladesh -->
-<section class="section">
-  <div class="container">
-    <div class="fade-in">
-      <span class="eyebrow-label">Bangladesh focused</span>
-      <h2>Built specifically<br>for Bangladesh</h2>
-    </div>
-    <div class="bd-grid fade-in">
-      <div class="bd-card">
-        <div class="bd-card-title">All 64 districts</div>
-        <p class="bd-card-desc">Complete national coverage from Teknaf to Tetulia</p>
-      </div>
-      <div class="bd-card">
-        <div class="bd-card-title">500+ Upazilas</div>
-        <p class="bd-card-desc">Precise location matching right down to your sub-district</p>
-      </div>
-      <div class="bd-card">
-        <div class="bd-card-title">Hospital workflows</div>
-        <p class="bd-card-desc">Designed around how local hospitals and families actually operate</p>
-      </div>
-      <div class="bd-card">
-        <div class="bd-card-title">Emergency first</div>
-        <p class="bd-card-desc">Urgent requests are prioritized and processed before everything else</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Stats -->
-<section class="stats-section">
-  <div class="container">
-    <div class="stats-inner fade-in">
-      <div class="stats-label-col">
-        <span class="eyebrow-label">By the numbers</span>
-        <h3>Designed for scale across Bangladesh</h3>
-      </div>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-num">64</div>
-          <div class="stat-lbl">Districts covered</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">500+</div>
-          <div class="stat-lbl">Upazilas supported</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">8</div>
-          <div class="stat-lbl">Blood groups matched</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">24/7</div>
-          <div class="stat-lbl">Emergency access</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section section-alt" id="faq">
-  <div class="container">
-    <div class="fade-in">
-      <span class="eyebrow-label">FAQ</span>
-      <h2>Common questions</h2>
-    </div>
-    <div class="faq-list fade-in">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Is Blood Hub free to use?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a"><p>Yes — Blood Hub is completely free. There are no ads, no subscription fees, and no hidden costs. It's a community platform built for public good.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Do I need an account to search for donors?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a"><p>You need a verified account to post requests and contact donors. This is to protect donors from spam and ensure all interactions are between real, verified users.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How is my personal data handled?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a"><p>Your data is used only for matching you with blood requests or donors in your area. Contact information is shared only when a donor explicitly accepts a request. We do not sell or share your data with third parties.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Do I need a constant internet connection?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a"><p>An internet connection is required to post requests, receive notifications, and search for donors in real time. Basic profile information is cached locally for offline viewing.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Is iOS support coming?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a"><p>Blood Hub currently supports Android 5.0 and above. iOS support is being planned. You can reach out via email to be notified when it launches.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How do I update my availability as a donor?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a"><p>From your profile page, you can toggle your availability on or off at any time. When you're marked unavailable, you won't receive donation request notifications.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Founder -->
-<section class="founder-section">
-  <div class="container">
-    <div class="founder-inner fade-in">
-      <div class="founder-left">
-        <div class="founder-avatar" style="background:none;border:none;overflow:hidden;padding:0;"><img src="https://i.ibb.co.com/Psbd7tCj/1.jpg" alt="Adnan, Founder of Blood Hub" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
-        <div class="founder-name">Adnan</div>
-        <div class="founder-role">Founder, Blood Hub</div>
-        <div class="founder-socials">
-          <a href="https://github.com/Abu-Taher-Siddiki-Adnan" target="_blank" rel="noopener" class="social-btn" title="GitHub">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/abu-taher-siddiki-adnan/" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/adnan.siddik.282" target="_blank" rel="noopener" class="social-btn" title="Facebook">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="mailto:abutahersiddikiadnan@gmail.com" class="social-btn" title="Email">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div>
-        <blockquote class="founder-quote">
-          Finding blood donors during emergencies often relies on social media posts and personal contacts. Blood Hub was created to provide a centralized platform that helps patients, families, and donors connect faster — through verified accounts, location-based matching, and real-time notifications.
-        </blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Download -->
-<section class="download-section" id="download">
-  <div class="container">
-    <div class="download-card fade-in">
-      <div class="dl-logo"><img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub app icon"></div>
-      <h2 class="dl-title">Ready to help<br>save lives?</h2>
-      <p class="dl-desc">Download Blood Hub and join a growing community of blood donors and recipients across Bangladesh.</p>
-      <div class="dl-actions">
-        <a href="https://github.com/Abu-Taher-Siddiki-Adnan/Blood-Hub-App/releases/download/v1.0.1/app-release.apk" class="dl-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          GitHub
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-mark"><img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub logo - blood donation app for Bangladesh"></div>
+          <span>Blood Hub</span>
         </a>
-        <a href="https://d.apkpure.com/b/APK/org.bloodhub.app?version=latest" class="dl-btn" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          APKPure
-        </a>
-      </div>
-      <div class="dl-meta">
-        <span>Version 1.0.1</span>
-        <span>55 MB</span>
-        <span>Android 5.0+</span>
-        <span>Free</span>
-        <span>No Ads</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <div class="footer-brand-mark"><img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub"></div>
-          <span class="footer-brand-name">Blood Hub</span>
+        <div class="nav-links">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#how" class="nav-link">How It Works</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+          <a href="#download" class="nav-cta">Download</a>
         </div>
-        <p class="footer-tagline">Bangladesh's community-driven blood donation platform. Connecting donors with those in need, one drop at a time.</p>
-      </div>
-      <div>
-        <div class="footer-col-title">Product</div>
-        <ul class="footer-links">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#download">Download</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Connect</div>
-        <ul class="footer-links">
-          <li><a href="mailto:abutahersiddikiadnan@gmail.com">Email</a></li>
-          <li><a href="https://github.com/Abu-Taher-Siddiki-Adnan" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/abu-taher-siddiki-adnan/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.facebook.com/adnan.siddik.282" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Legal</div>
-        <ul class="footer-links">
-          <li href="#">Privacy Policy</li>
-          <li href="#">Terms of Use</li>
-          <li href="#">Data Handling</li>
-        </ul>
+        <div class="hamburger" onclick="openMobileNav()">
+          <span></span><span></span><span></span>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025 Blood Hub · Made with ❤️ for Bangladesh</div>
-      <div class="footer-legal">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="mailto:abutahersiddikiadnan@gmail.com">Contact</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-eyebrow">
+            <div class="eyebrow-dot"></div>Available across Bangladesh
+          </div>
+          <h1>Blood Hub - <br> Find Blood Donors <br> Faster During Emergencies</h1>
+          <p class="hero-desc">Blood Hub connects verified donors and recipients across Bangladesh through real-time
+            matching, emergency alerts, and location-based search — all in one app.</p>
+          <div class="hero-actions">
+            <a href="#download" class="btn-dl">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download for Android
+            </a>
+            <a href="#how" class="btn-ghost">See how it works →</a>
+          </div>
+          <div class="trust-chips">
+            <div class="chip">Verified accounts</div>
+            <div class="chip">Real-time alerts</div>
+            <div class="chip">Blood compatibility matching</div>
+            <div class="chip">All 64 districts</div>
+          </div>
+        </div>
+
+        <!-- Hero Visual -->
+        <div class="hero-visual">
+          <div class="screenshot-stack">
+            <img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy" alt="Blood Hub blood donation app dashboard showing donor search feature" class="screenshot-main">
+            <img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy" alt="Blood Hub app donor search by blood group and district in Bangladesh"
+              class="screenshot-float screenshot-float-1">
+            <img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy" alt="Blood Hub real-time emergency notifications for blood donors"
+              class="screenshot-float screenshot-float-2">
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Urgency strip -->
+  <div class="urgency-strip">
+    <div class="strip-track">
+      <div class="strip-item">🩸 64 Districts covered</div>
+      <div class="strip-item strip-sep">—</div>
+      <div class="strip-item">⚡ Real-time notifications</div>
+      <div class="strip-item strip-sep">—</div>
+      <div class="strip-item">✓ Verified donors only</div>
+      <div class="strip-item strip-sep">—</div>
+      <div class="strip-item">🗺 500+ Upazilas</div>
+      <div class="strip-item strip-sep">—</div>
+      <div class="strip-item">🩸 8 blood groups matched</div>
+      <div class="strip-item strip-sep">—</div>
+      <div class="strip-item">📱 Free · No ads · Android 5.0+</div>
+      <div class="strip-item strip-sep">—</div>
+      <!-- duplicate for seamless loop -->
+      <div class="strip-item">🩸 64 Districts covered</div>
+      <div class="strip-item strip-sep">—</div>
+      <div class="strip-item">⚡ Real-time notifications</div>
+      <div class="strip-item strip-sep">—</div>
+      <div class="strip-item">✓ Verified donors only</div>
+      <div class="strip-item strip-sep">—</div>
+      <div class="strip-item">🗺 500+ Upazilas</div>
+      <div class="strip-item strip-sep">—</div>
+      <div class="strip-item">🩸 8 blood groups matched</div>
+      <div class="strip-item strip-sep">—</div>
+      <div class="strip-item">📱 Free · No ads · Android 5.0+</div>
+      <div class="strip-item strip-sep">—</div>
     </div>
   </div>
-</footer>
 
-<script>
-// Nav scroll
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
-});
+  <!-- Problem / Solution -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="fade-in">
+        <span class="eyebrow-label">Why it matters</span>
+        <h2>A life-or-death problem<br>needs a real solution</h2>
+      </div>
+      <div class="problem-grid fade-in">
+        <div class="problem-card">
+          <div class="card-title">The old way is broken</div>
+          <p class="card-body">Families post frantically on Facebook. They call every contact. They wait. Minutes turn
+            to hours. <strong>Every minute without blood is critical</strong> — and the system wasn't built to help
+            them.</p>
+        </div>
+        <div class="problem-card">
+          <div class="card-title">Blood Hub changes that</div>
+          <p class="card-body">Create a request in seconds. Compatible donors in your district get notified
+            <strong>instantly via push notification</strong>. They respond, confirm, and you get their contact. One
+            platform. Zero wasted time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-// Mobile nav
-function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); }
-function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="features-header fade-in">
+        <div>
+          <span class="eyebrow-label">Core features</span>
+          <h2>Everything you need<br>to save a life</h2>
+        </div>
+        <p class="section-desc">Blood Hub is a complete platform for blood donation management — designed for real
+          emergencies across Bangladesh.</p>
+      </div>
+      <div class="features-grid fade-in">
+        <div class="feature-cell">
+          <div class="feature-num">01</div>
+          <div class="feature-title">Verified accounts</div>
+          <p class="feature-desc">Secure registration with email verification. Only real, confirmed accounts can donate
+            or post requests.</p>
+        </div>
+        <div class="feature-cell">
+          <div class="feature-num">02</div>
+          <div class="feature-title">Blood requests</div>
+          <p class="feature-desc">Create a detailed request and instantly alert compatible donors in your district.
+            Takes under 30 seconds.</p>
+        </div>
+        <div class="feature-cell">
+          <div class="feature-num">03</div>
+          <div class="feature-title">Donor search</div>
+          <p class="feature-desc">Search by blood group, district, and upazila. Filter by availability. Find the right
+            person, fast.</p>
+        </div>
+        <div class="feature-cell">
+          <div class="feature-num">04</div>
+          <div class="feature-title">Instant notifications</div>
+          <p class="feature-desc">Firebase Cloud Messaging delivers emergency alerts in real time. Donors are notified
+            the moment a match is found.</p>
+        </div>
+        <div class="feature-cell">
+          <div class="feature-num">05</div>
+          <div class="feature-title">Donation tracking</div>
+          <p class="feature-desc">Track your donation history, eligibility window, and lifetime contributions — all from
+            your profile.</p>
+        </div>
+        <div class="feature-cell">
+          <div class="feature-num">06</div>
+          <div class="feature-title">Profile control</div>
+          <p class="feature-desc">Manage your availability, blood group, location, and preferences. Go offline when
+            unavailable, back on in seconds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-// FAQ
-function toggleFaq(btn) {
-  const item = btn.closest('.faq-item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
-}
+  <!-- How It Works -->
+  <section class="section section-alt" id="how">
+    <div class="container">
+      <div style="text-align:center" class="fade-in">
+        <span class="eyebrow-label">Process</span>
+        <h2>From request to donation<br>in five steps</h2>
+      </div>
+      <div class="steps-wrap fade-in">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-title">Create request</div>
+          <p class="step-desc">Enter patient details, blood group, hospital, and urgency level</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-title">System matches</div>
+          <p class="step-desc">Blood Hub finds compatible, available donors in your area</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-title">Alerts sent</div>
+          <p class="step-desc">Instant push notifications go to every matched donor</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-title">Donor responds</div>
+          <p class="step-desc">Donor confirms interest and contact details are shared</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-title">Donation done</div>
+          <p class="step-desc">Request is fulfilled and donor history is updated</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-// Fade-in on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 80);
-      observer.unobserve(e.target);
+  <!-- Built for Bangladesh -->
+  <section class="section">
+    <div class="container">
+      <div class="fade-in">
+        <span class="eyebrow-label">Bangladesh focused</span>
+        <h2>Built specifically<br>for Bangladesh</h2>
+      </div>
+      <div class="bd-grid fade-in">
+        <div class="bd-card">
+          <div class="bd-card-title">All 64 districts</div>
+          <p class="bd-card-desc">Complete national coverage from Teknaf to Tetulia</p>
+        </div>
+        <div class="bd-card">
+          <div class="bd-card-title">500+ Upazilas</div>
+          <p class="bd-card-desc">Precise location matching right down to your sub-district</p>
+        </div>
+        <div class="bd-card">
+          <div class="bd-card-title">Hospital workflows</div>
+          <p class="bd-card-desc">Designed around how local hospitals and families actually operate</p>
+        </div>
+        <div class="bd-card">
+          <div class="bd-card-title">Emergency first</div>
+          <p class="bd-card-desc">Urgent requests are prioritized and processed before everything else</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-inner fade-in">
+        <div class="stats-label-col">
+          <span class="eyebrow-label">By the numbers</span>
+          <h3>Designed for scale across Bangladesh</h3>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-num">64</div>
+            <div class="stat-lbl">Districts covered</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">500+</div>
+            <div class="stat-lbl">Upazilas supported</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">8</div>
+            <div class="stat-lbl">Blood groups matched</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">24/7</div>
+            <div class="stat-lbl">Emergency access</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="fade-in">
+        <span class="eyebrow-label">FAQ</span>
+        <h2>Common questions</h2>
+      </div>
+      <div class="faq-list fade-in">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is Blood Hub free to use?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Yes — Blood Hub is completely free. There are no ads, no subscription fees, and no hidden costs. It's a
+              community platform built for public good.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Do I need an account to search for donors?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>You need a verified account to post requests and contact donors. This is to protect donors from spam and
+              ensure all interactions are between real, verified users.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How is my personal data handled?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Your data is used only for matching you with blood requests or donors in your area. Contact information
+              is shared only when a donor explicitly accepts a request. We do not sell or share your data with third
+              parties.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Do I need a constant internet connection?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>An internet connection is required to post requests, receive notifications, and search for donors in real
+              time. Basic profile information is cached locally for offline viewing.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is iOS support coming?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Blood Hub currently supports Android 5.0 and above. iOS support is being planned. You can reach out via
+              email to be notified when it launches.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How do I update my availability as a donor?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>From your profile page, you can toggle your availability on or off at any time. When you're marked
+              unavailable, you won't receive donation request notifications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section class="founder-section">
+    <div class="container">
+      <div class="founder-inner fade-in">
+        <div class="founder-left">
+          <div class="founder-avatar" style="background:none;border:none;overflow:hidden;padding:0;"><img
+              src="https://i.ibb.co.com/Psbd7tCj/1.jpg" loading="lazy" alt="Adnan, Founder of Blood Hub - blood donation app creator"
+              style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+          <div class="founder-name">Adnan</div>
+          <div class="founder-role">Founder, Blood Hub</div>
+          <div class="founder-socials">
+            <a href="https://github.com/Abu-Taher-Siddiki-Adnan" target="_blank" rel="noopener" class="social-btn"
+              title="GitHub">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/abu-taher-siddiki-adnan/" target="_blank" rel="noopener"
+              class="social-btn" title="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/adnan.siddik.282" target="_blank" rel="noopener" class="social-btn"
+              title="Facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="mailto:abutahersiddikiadnan@gmail.com" class="social-btn" title="Email">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <blockquote class="founder-quote">
+            Finding blood donors during emergencies often relies on social media posts and personal contacts. Blood Hub
+            was created to provide a centralized platform that helps patients, families, and donors connect faster —
+            through verified accounts, location-based matching, and real-time notifications.
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="download-section" id="download">
+    <div class="container">
+      <div class="download-card fade-in">
+        <div class="dl-logo"><img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy" alt="Blood Hub app icon - blood donation app for Bangladesh"></div>
+        <h2 class="dl-title">Ready to help<br>save lives?</h2>
+        <p class="dl-desc">Download Blood Hub and join a growing community of blood donors and recipients across
+          Bangladesh.</p>
+        <div class="dl-actions">
+          <a href="https://github.com/Abu-Taher-Siddiki-Adnan/Blood-Hub-App/releases/download/v1.0.1/app-release.apk"
+            class="dl-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            GitHub
+          </a>
+          <a href="https://d.apkpure.com/b/APK/org.bloodhub.app?version=latest" class="dl-btn" target="_blank"
+            rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            APKPure
+          </a>
+        </div>
+        <div class="dl-meta">
+          <span>Version 1.0.1</span>
+          <span>55 MB</span>
+          <span>Android 5.0+</span>
+          <span>Free</span>
+          <span>No Ads</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <div class="footer-brand-mark"><img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy" alt="Blood Hub logo"></div>
+            <span class="footer-brand-name">Blood Hub</span>
+          </div>
+          <p class="footer-tagline">Bangladesh's community-driven blood donation platform. Connecting donors with those
+            in need, one drop at a time.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Product</div>
+          <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#download">Download</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <ul class="footer-links">
+            <li><a href="mailto:abutahersiddikiadnan@gmail.com">Email</a></li>
+            <li><a href="https://github.com/Abu-Taher-Siddiki-Adnan" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/abu-taher-siddiki-adnan/" target="_blank"
+                rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.facebook.com/adnan.siddik.282" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Legal</div>
+          <ul class="footer-links">
+            <li><a href="https://github.com/Abu-Taher-Siddiki-Adnan/Blood-Hub-App/blob/main/Privacy%20and%20Policy.txt">Privacy Policy</a></li>
+            <li><a href="#how">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav
+    function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); }
+    function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
+
+    // FAQ
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
     }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 </body>
+
 </html>
