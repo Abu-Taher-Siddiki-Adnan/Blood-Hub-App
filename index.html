@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="canonical" href="https://blood-hub-website.vercel.app/">
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,700&display=swap"
     rel="stylesheet">
   <style>
     :root {
@@ -39,8 +39,9 @@
       --text-2: #9B9A94;
       --text-3: #5A5955;
       --white: #FFFFFF;
-      --font-display: 'Fraunces', Georgia, serif;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-display: 'Inter', 'Segoe UI', Arial, sans-serif;
+      --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+      --font-hero: 'Fraunces', Georgia, serif;
     }
 
     *,
@@ -61,6 +62,10 @@
       color: var(--text);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
     }
 
     /* ─── NOISE OVERLAY ─── */
@@ -87,7 +92,7 @@
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
+      z-index: 120;
       padding: 18px 0;
       transition: background .3s, border-color .3s;
     }
@@ -102,6 +107,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
 
     .nav-logo {
@@ -178,6 +184,8 @@
       gap: 5px;
       cursor: pointer;
       padding: 4px;
+      background: transparent;
+      border: 0;
     }
 
     .hamburger span {
@@ -257,7 +265,7 @@
     }
 
     h1 {
-      font-family: var(--font-display);
+      font-family: var(--font-hero);
       font-size: 62px;
       font-weight: 800;
       line-height: 1.02;
@@ -1312,6 +1320,7 @@
 
       .hamburger {
         display: flex;
+        margin-left: auto;
       }
     }
 
@@ -1349,39 +1358,58 @@
 
     /* ─── MOBILE NAV OVERLAY ─── */
     .mobile-nav {
-      display: none;
       position: fixed;
-      inset: 0;
-      z-index: 99;
-      background: var(--black);
+      top: 76px;
+      left: 16px;
+      right: 16px;
+      z-index: 130;
+      background: rgba(24, 24, 27, 0.98);
+      border: 1px solid var(--border-2);
+      border-radius: 18px;
+      padding: 20px 16px 18px;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 32px;
+      gap: 8px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
     }
 
     .mobile-nav.open {
-      display: flex;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
     .mobile-nav a {
-      font-family: var(--font-display);
-      font-size: 28px;
-      font-weight: 700;
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 600;
       color: var(--text);
       text-decoration: none;
       transition: color .2s;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      border-radius: 10px;
     }
 
     .mobile-nav a:hover {
       color: var(--red-2);
+      background: rgba(255, 255, 255, 0.04);
     }
 
     .mobile-nav-close {
       position: absolute;
-      top: 24px;
-      right: 28px;
-      font-size: 28px;
+      top: 10px;
+      right: 10px;
+      font-size: 22px;
       cursor: pointer;
       color: var(--text-2);
       background: none;
@@ -1417,11 +1445,10 @@
 
   <!-- Mobile nav overlay -->
   <div class="mobile-nav" id="mobileNav">
-    <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
-    <a href="#features" onclick="closeMobileNav()">Features</a>
-    <a href="#how" onclick="closeMobileNav()">How It Works</a>
-    <a href="#faq" onclick="closeMobileNav()">FAQ</a>
-    <a href="#download" onclick="closeMobileNav()" style="color:var(--red-2)">Download</a>
+    <a href="#features" onclick="closeMobileNav()">Features</a><br>
+    <a href="#how" onclick="closeMobileNav()">How It Works</a><br>
+    <a href="#faq" onclick="closeMobileNav()">FAQ</a><br>
+    <a href="#download" onclick="closeMobileNav()" style="color:var(--red-2)">Download</a><br>
   </div>
 
   <!-- Navigation -->
@@ -1429,7 +1456,8 @@
     <div class="container">
       <div class="nav-inner">
         <a href="#" class="nav-logo">
-          <div class="nav-logo-mark"><img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub logo - blood donation app for Bangladesh"></div>
+          <div class="nav-logo-mark"><img src="https://i.ibb.co.com/1txKKfhk/logo.png"
+              alt="Blood Hub logo - blood donation app for Bangladesh"></div>
           <span>Blood Hub</span>
         </a>
         <div class="nav-links">
@@ -1438,9 +1466,10 @@
           <a href="#faq" class="nav-link">FAQ</a>
           <a href="#download" class="nav-cta">Download</a>
         </div>
-        <div class="hamburger" onclick="openMobileNav()">
+        <button class="hamburger" type="button" onclick="toggleMobileNav()" aria-label="Toggle navigation menu"
+          aria-expanded="false" aria-controls="mobileNav">
           <span></span><span></span><span></span>
-        </div>
+        </button>
       </div>
     </div>
   </nav>
@@ -1479,10 +1508,13 @@
         <!-- Hero Visual -->
         <div class="hero-visual">
           <div class="screenshot-stack">
-            <img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy" alt="Blood Hub blood donation app dashboard showing donor search feature" class="screenshot-main">
-            <img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy" alt="Blood Hub app donor search by blood group and district in Bangladesh"
+            <img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy"
+              alt="Blood Hub blood donation app dashboard showing donor search feature" class="screenshot-main">
+            <img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy"
+              alt="Blood Hub app donor search by blood group and district in Bangladesh"
               class="screenshot-float screenshot-float-1">
-            <img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy" alt="Blood Hub real-time emergency notifications for blood donors"
+            <img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy"
+              alt="Blood Hub real-time emergency notifications for blood donors"
               class="screenshot-float screenshot-float-2">
           </div>
         </div>
@@ -1772,7 +1804,8 @@
       <div class="founder-inner fade-in">
         <div class="founder-left">
           <div class="founder-avatar" style="background:none;border:none;overflow:hidden;padding:0;"><img
-              src="https://i.ibb.co.com/Psbd7tCj/1.jpg" loading="lazy" alt="Adnan, Founder of Blood Hub - blood donation app creator"
+              src="https://i.ibb.co.com/Psbd7tCj/1.jpg" loading="lazy"
+              alt="Adnan, Founder of Blood Hub - blood donation app creator"
               style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
           <div class="founder-name">Adnan</div>
           <div class="founder-role">Founder, Blood Hub</div>
@@ -1821,7 +1854,8 @@
   <section class="download-section" id="download">
     <div class="container">
       <div class="download-card fade-in">
-        <div class="dl-logo"><img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy" alt="Blood Hub app icon - blood donation app for Bangladesh"></div>
+        <div class="dl-logo"><img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy"
+            alt="Blood Hub app icon - blood donation app for Bangladesh"></div>
         <h2 class="dl-title">Ready to help<br>save lives?</h2>
         <p class="dl-desc">Download Blood Hub and join a growing community of blood donors and recipients across
           Bangladesh.</p>
@@ -1864,7 +1898,8 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">
-            <div class="footer-brand-mark"><img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy" alt="Blood Hub logo"></div>
+            <div class="footer-brand-mark"><img src="https://i.ibb.co.com/1txKKfhk/logo.png" loading="lazy"
+                alt="Blood Hub logo"></div>
             <span class="footer-brand-name">Blood Hub</span>
           </div>
           <p class="footer-tagline">Bangladesh's community-driven blood donation platform. Connecting donors with those
@@ -1892,24 +1927,64 @@
         <div>
           <div class="footer-col-title">Legal</div>
           <ul class="footer-links">
-            <li><a href="https://github.com/Abu-Taher-Siddiki-Adnan/Blood-Hub-App/blob/main/Privacy%20and%20Policy.txt">Privacy Policy</a></li>
+            <li><a
+                href="https://github.com/Abu-Taher-Siddiki-Adnan/Blood-Hub-App/blob/main/Privacy%20and%20Policy.txt">Privacy
+                Policy</a></li>
             <li><a href="#how">Terms of Use</a></li>
           </ul>
         </div>
       </div>
-      </div>
+    </div>
     </div>
   </footer>
 
   <script>
+    const nav = document.getElementById('nav');
+    const mobileNav = document.getElementById('mobileNav');
+    const hamburger = document.querySelector('.hamburger');
+
     // Nav scroll
     window.addEventListener('scroll', () => {
-      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+      nav.classList.toggle('scrolled', window.scrollY > 40);
     });
 
     // Mobile nav
-    function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); }
-    function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
+    function setMobileNavState(isOpen) {
+      mobileNav.classList.toggle('open', isOpen);
+      document.body.classList.toggle('menu-open', isOpen);
+      if (hamburger) {
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+      }
+    }
+
+    function openMobileNav() {
+      setMobileNavState(true);
+    }
+
+    function closeMobileNav() {
+      setMobileNavState(false);
+    }
+
+    function toggleMobileNav() {
+      const isOpen = mobileNav.classList.contains('open');
+      setMobileNavState(!isOpen);
+    }
+
+    mobileNav.addEventListener('click', (event) => {
+      if (event.target === mobileNav) {
+        closeMobileNav();
+      }
+    });
+
+    document.querySelectorAll('.mobile-nav a').forEach((link) => {
+      link.addEventListener('click', closeMobileNav);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeMobileNav();
+      }
+    });
 
     // FAQ
     function toggleFaq(btn) {
