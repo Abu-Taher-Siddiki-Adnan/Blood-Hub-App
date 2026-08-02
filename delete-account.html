@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Your Account | Blood Hub</title>
+  <meta name="description"
+    content="How to request deletion of your Blood Hub account and associated data.">
+  <link rel="preconnect" href="https://i.ibb.co.com">
+  <link rel="icon" href="https://i.ibb.co.com/1txKKfhk/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --red: #D92B2B;
+      --red-2: #FF3B3B;
+      --red-dim: rgba(217, 43, 43, 0.1);
+      --red-glow: rgba(217, 43, 43, 0.22);
+      --black: #0A0A0B;
+      --surface: #111114;
+      --surface-2: #18181C;
+      --surface-3: #202027;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-2: rgba(255, 255, 255, 0.12);
+      --text: #F0EEE8;
+      --text-2: #9B9A94;
+      --text-3: #5A5955;
+      --white: #FFFFFF;
+      --font-display: 'Inter', 'Segoe UI', Arial, sans-serif;
+      --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+      --font-hero: 'Fraunces', Georgia, serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: .55;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 120;
+      padding: 18px 0;
+      background: rgba(10, 10, 11, 0.88);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav-logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; }
+
+    .nav-logo span {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-back {
+      text-decoration: none;
+      color: var(--text-2);
+      font-size: 13px;
+      font-weight: 400;
+      transition: color .2s;
+    }
+
+    .nav-back:hover { color: var(--text); }
+
+    /* ─── HEADER ─── */
+    .policy-header {
+      padding: 64px 0 40px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .eyebrow-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--red-2);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .policy-header h1 {
+      font-family: var(--font-hero);
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .policy-meta {
+      font-size: 13.5px;
+      color: var(--text-3);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ─── BODY ─── */
+    .policy-body { padding: 56px 0 100px; }
+
+    .policy-intro {
+      font-size: 16px;
+      color: var(--text-2);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 48px;
+      max-width: 680px;
+    }
+
+    .policy-section {
+      padding: 36px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .policy-section:first-of-type { border-top: none; padding-top: 0; }
+
+    .section-num {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--red-2);
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }
+
+    .policy-section h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 16px;
+    }
+
+    .policy-section p {
+      font-size: 14.5px;
+      color: var(--text-2);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+
+    .policy-section p:last-child { margin-bottom: 0; }
+
+    .policy-section a { color: var(--red-2); text-decoration: none; }
+    .policy-section a:hover { text-decoration: underline; }
+
+    .step-list {
+      list-style: none;
+      margin: 20px 0;
+      counter-reset: step;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .step-list li {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .step-list li::before {
+      content: counter(step);
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: 1px solid var(--border-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--red-2);
+    }
+
+    .step-list .step-text {
+      font-size: 14.5px;
+      color: var(--text-2);
+      line-height: 1.75;
+      font-weight: 300;
+      padding-top: 4px;
+    }
+
+    .step-list .step-text strong { color: var(--text); font-weight: 500; }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .info-table th, .info-table td {
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-2);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .info-table th {
+      background: var(--surface-2);
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--text);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .info-table tr:last-child td { border-bottom: none; }
+    .info-table td:first-child { color: var(--text); font-weight: 500; white-space: nowrap; }
+
+    .callout {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--red);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .callout p { color: var(--text-2); margin-bottom: 0; }
+    .callout p strong { color: var(--text); font-weight: 500; }
+
+    .contact-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border-2);
+      border-radius: 16px;
+      padding: 32px;
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-item .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-3);
+      margin-bottom: 6px;
+    }
+
+    .contact-item .value {
+      font-family: var(--font-display);
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .contact-item a { color: var(--red-2); text-decoration: none; }
+    .contact-item a:hover { text-decoration: underline; }
+
+    .mailto-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--red);
+      color: white;
+      padding: 14px 26px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all .25s;
+      margin-top: 8px;
+    }
+
+    .mailto-btn:hover {
+      background: var(--red-2);
+      box-shadow: 0 12px 32px var(--red-glow);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy { font-size: 12px; color: var(--text-3); font-weight: 300; }
+
+    .footer-legal { display: flex; gap: 20px; }
+
+    .footer-legal a {
+      font-size: 12px;
+      color: var(--text-3);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-legal a:hover { color: var(--text-2); }
+
+    @media (max-width: 640px) {
+      .policy-header h1 { font-size: 32px; }
+      .policy-header { padding: 44px 0 32px; }
+      .contact-card { flex-direction: column; align-items: flex-start; }
+      .info-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark"><img src="https://i.ibb.co.com/1txKKfhk/logo.png" alt="Blood Hub logo"></div>
+        <span>Blood Hub</span>
+      </a>
+      <a href="index.html" class="nav-back">← Back to home</a>
+    </div>
+  </nav>
+
+  <header class="policy-header">
+    <div class="container">
+      <span class="eyebrow-label">Account</span>
+      <h1>Delete Your Blood Hub Account</h1>
+      <p class="policy-meta"><strong>Last updated:</strong> August 2, 2026</p>
+    </div>
+  </header>
+
+  <main class="policy-body">
+    <div class="container">
+
+      <p class="policy-intro">
+        If you'd like to stop using Blood Hub and have your account and personal data permanently deleted, you
+        can request this at any time using the steps below. This applies to all Blood Hub accounts, regardless of
+        how you signed up.
+      </p>
+
+      <section class="policy-section">
+        <div class="section-num">01</div>
+        <h2>How to Request Deletion</h2>
+        <p>Blood Hub doesn't yet have an in-app "Delete Account" button, so deletion requests are handled directly
+          by our team to make sure your data is fully and correctly removed.</p>
+        <ul class="step-list">
+          <li>
+            <div class="step-text"><strong>Send an email</strong> to
+              <a href="mailto:abutahersiddikiadnan@gmail.com?subject=Blood%20Hub%20Account%20Deletion%20Request">abutahersiddikiadnan@gmail.com</a>
+              from the same email address you used to register on Blood Hub.</div>
+          </li>
+          <li>
+            <div class="step-text">Use the subject line <strong>"Blood Hub Account Deletion Request"</strong> and
+              include the phone number on your account, so we can verify it's really you.</div>
+          </li>
+          <li>
+            <div class="step-text">We will confirm your identity and process the deletion request within
+              <strong>7 business days</strong>, and reply to confirm once it's complete.</div>
+          </li>
+        </ul>
+        <a class="mailto-btn"
+          href="mailto:abutahersiddikiadnan@gmail.com?subject=Blood%20Hub%20Account%20Deletion%20Request">Request Account Deletion →</a>
+      </section>
+
+      <section class="policy-section">
+        <div class="section-num">02</div>
+        <h2>What Gets Deleted</h2>
+        <table class="info-table">
+          <thead>
+            <tr><th>Data</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Name, email, phone number</td><td>Permanently deleted</td></tr>
+            <tr><td>Blood group, date of birth, gender</td><td>Permanently deleted</td></tr>
+            <tr><td>Location (district / upazila)</td><td>Permanently deleted</td></tr>
+            <tr><td>Donation history and availability status</td><td>Permanently deleted</td></tr>
+            <tr><td>Login credentials (Firebase Authentication record)</td><td>Permanently deleted</td></tr>
+            <tr><td>Push notification device token</td><td>Permanently deleted</td></tr>
+            <tr><td>Blood requests you posted</td><td>Removed from active listings; anonymized in records
+              needed to keep other users' notification history consistent</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="policy-section">
+        <div class="section-num">03</div>
+        <h2>Retention After Deletion</h2>
+        <div class="callout">
+          <p>Once processed, your personal data is removed from our active database within
+            <strong>7 business days</strong>. A minimal record may be retained for up to <strong>30 days</strong>
+            in encrypted backups purely for disaster-recovery purposes, after which it is permanently purged. We do
+            not retain any data longer than necessary, and do not use deleted data for any purpose during this
+            window.</p>
+        </div>
+        <p>If you only want to stop appearing in donor search or receiving notifications — without deleting your
+          account entirely — you can instead open the app, go to your <strong>Profile</strong>, and toggle your
+          status to <strong>"Resting."</strong> This keeps your account and donation history intact while hiding
+          you from active matching.</p>
+      </section>
+
+      <section class="policy-section">
+        <div class="section-num">04</div>
+        <h2>Questions</h2>
+        <p>If you have any questions about this process or your data, contact us directly.</p>
+        <div class="contact-card">
+          <div class="contact-item">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:abutahersiddikiadnan@gmail.com">abutahersiddikiadnan@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="label">App</div>
+            <div class="value">Blood Hub — Bangladesh</div>
+          </div>
+          <div class="contact-item">
+            <div class="label">Privacy Policy</div>
+            <div class="value"><a href="privacy-policy.html">View policy →</a></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-copy">© 2026 Blood Hub. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="index.html">Home</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
