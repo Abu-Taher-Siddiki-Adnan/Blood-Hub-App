@@ -1,0 +1,106 @@
+Privacy Policy for Blood Hub
+Effective Date: 06/07/2026
+
+1. Introduction
+Welcome to Blood Hub. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our mobile application Blood Hub.
+
+By using Blood Hub, you agree to the collection and use of information in accordance with this policy.
+
+2. Information We Collect
+2.1 Information You Provide
+Account Information: When you register, we may collect your name, email address, phone number, and blood type.
+
+Location Information: Your current location to help find nearby blood donors or donation centers.
+
+Health Information: Blood type, donation history, and medical eligibility information (with your explicit consent).
+
+User Content: Blood requests, donor responses, and any messages you send through the App.
+
+2.2 Information Automatically Collected
+Device Information: Device model, operating system version, unique device identifiers.
+
+Usage Data: How you interact with the App, features you use, and time spent.
+
+Log Data: IP address, app crash reports, and access times.
+
+3. How We Use Your Information
+We use your information to:
+
+Connect blood donors with recipients in need
+
+Send urgent blood request notifications
+
+Verify user identities to prevent misuse
+
+Improve and optimize App performance
+
+Comply with legal and regulatory requirements
+
+Respond to emergencies and critical health situations
+
+4. Permissions We Use
+Blood Hub requires the following permissions:
+
+Permission	Purpose
+INTERNET	To connect to our servers and match donors with recipients
+CAMERA	To scan medical documents or blood donation certificates (optional)
+READ_EXTERNAL_STORAGE	To upload profile pictures or medical documents
+CALL_PHONE	To directly call emergency contacts or blood donors (only with your action)
+5. How We Share Your Information
+We do not sell your personal information. We may share your information:
+
+With Other Users: Your blood type and general location (not exact address) will be visible to potential donors/recipients.
+
+With Healthcare Providers: If you request, we may share information with blood banks or hospitals.
+
+Legal Requirements: If required by law or to protect safety during emergencies.
+
+Service Providers: Third parties who help us operate the App (hosting, analytics, etc.).
+
+6. Data Security
+We implement industry-standard security measures including:
+
+Encryption of sensitive data
+
+Secure server infrastructure
+
+Regular security audits
+
+However, no method of transmission over the internet is 100% secure.
+
+7. Data Retention
+We retain your information:
+
+As long as your account is active
+
+To comply with legal obligations
+
+For legitimate business purposes
+
+You may request deletion of your data by contacting us.
+
+8. Children's Privacy
+Blood Hub is not intended for users under 13 years of age (or under 17 in some regions for medical apps). We do not knowingly collect information from children.
+
+9. Your Rights
+Depending on your location, you may have the right to:
+
+Access your personal data
+
+Correct inaccurate data
+
+Delete your data
+
+Withdraw consent at any time
+
+Opt out of communications
+
+10. Contact Us
+For privacy questions or requests:
+
+Email: adnan02802@gmail.com
+
+Or contact us through the App's support section.
+
+11. Changes to This Policy
+We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy in the App and updating the "Effective Date."
